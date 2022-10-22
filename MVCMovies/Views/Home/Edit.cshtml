@@ -1,0 +1,86 @@
+﻿@{
+    ViewData["Title"] = "Edit Movies";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome Edit Movies</h1>
+</div>
+
+<div class="text-center">
+    <div class="container">
+        <form asp-action="Index" asp-controller="Home">
+            <button class="btn btn-success" type="submit">Home</button>
+        </form>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            @foreach (var @movies in @ViewBag.Movies)
+            {
+                <div class="col">
+
+                    <div class="flex-shrink-0">
+                        <img src=@movies.Photo class="card-img-top" alt="..." style="width:250px" value="@movies.Photo">
+                        <a asp-action="DeletePhoto" asp-controller="Home" style="position:absolute;margin-left: -22px;color:blue" asp-route-IdMovie="@movies.IdMovie" asp-route-Photo="@movies.Photo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <hr />
+                    <div class="card-body">
+                        <form asp-action="UpdatePhoto" asp-controller="Home" method="post" enctype="multipart/form-data" asp-route-IdMovie="@movies.IdMovie">
+                            <div class="d-flex pt-1">
+                                <div class="file-upload-wrapper">
+                                    <input type="file" name="Photo" class="form-control"/>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="text-center" >
+                                <button type="submit" class="btn btn-success center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-up" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M3.5 10a.5.5 0 0 1-.5-.5v-8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 0 0 1h2A1.5 1.5 0 0 0 14 9.5v-8A1.5 1.5 0 0 0 12.5 0h-9A1.5 1.5 0 0 0 2 1.5v8A1.5 1.5 0 0 0 3.5 11h2a.5.5 0 0 0 0-1h-2z"></path>
+                                        <path fill-rule="evenodd" d="M7.646 4.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V14.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3z"></path>
+                                    </svg>
+                                    Update Photo
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+
+
+
+
+                    <div class="card shadow-sm" style="width:252px">
+                        <div class="card-body">
+                            <form asp-controller="Home" asp-action="SaveEditMovie" method="POST">
+                                <div class="form-floating mb-3">
+                                    <input name="txtIdMovie" type="text" class="form-control" id="floatingInput" placeholder="name@example.com" value="@movies.IdMovie" readonly required>
+                                    <label for="floatingInput">IDMovie</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input name="txtName" type="text" class="form-control" id="floatingInput" placeholder="name@example.com" value="@movies.Name" required>
+                                    <label for="floatingInput">Name</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <select name="selectGenere" class="form-select" id="floatingSelect" aria-label="Floating label select example" required>
+                                        <option selected>@movies.Genere</option>
+                                        <option value="Comedia">Comedia</option>
+                                        <option value="Terror">Terror</option>
+                                        <option value="Acción">Acción</option>
+                                    </select>
+                                    <label for="floatingSelect">Select the genere</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input name="txtDate" type="text" class="form-control" id="floatingInput" placeholder="name@example.com" value="@movies.Date" required>
+                                    <label for="floatingInput">Date</label>
+                                </div>
+                                <hr />
+                                <button type="submit" class="btn btn-primary">Save Movie</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

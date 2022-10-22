@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Create Movies";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome Create Movies</h1>
+</div>
+
+<div class="text-center">
+    <div class="container">
+        <form asp-action="Index" asp-controller="Home">
+            <button class="btn btn-success" type="submit">Home</button>
+        </form>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="col">
+                <div class="card shadow-sm" style="width:252px">
+                    <div class="card-body">
+                        <form asp-controller="Home" asp-action="SaveMovie" method="POST">
+                            <div class="form-floating mb-3">
+                                <input name="txtIdMovie" type="text" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+                                <label for="floatingInput">IDMovie</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input name="txtName" type="text" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+                                <label for="floatingInput">Name</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <select name="selectGenere" class="form-select" id="floatingSelect" aria-label="Floating label select example" required>
+                                    <option selected>Open this select menu</option>
+                                    <option value="Comedia">Comedia</option>
+                                    <option value="Terror">Terror</option>
+                                    <option value="Acción">Acción</option>
+                                    <option value="Infantil">Infantil</option>
+                                </select>
+                                <label for="floatingSelect">Select the genere</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input name="txtDate" type="text" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+                                <label for="floatingInput">Date</label>
+                            </div>
+                            <hr />
+                            <button type="submit" class="btn btn-primary">Create Movie</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

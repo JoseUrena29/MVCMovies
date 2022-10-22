@@ -1,0 +1,10 @@
+
+CREATE PROCEDURE spGetMovies
+
+AS
+BEGIN
+
+SELECT * FROM Movies
+
+END
+GO
