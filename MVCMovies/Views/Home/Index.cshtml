@@ -4,6 +4,10 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome MVCMovies</h1>
+
+    <form asp-action="Create" asp-controller="Home">
+        <button class="btn btn-success" type="submit">Add Movie</button>
+    </form>
 </div>
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -24,12 +28,44 @@
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Carrusel 3D</title>
+    <link rel="stylesheet" href="/images/estilos.css">
+</head>
+<body>
+    @*<h2>Recommended Movies</h2>*@
+    <div class="content-all">
+        <div class="content-carrousel">
+            <figure><img src="/images/20.jpg"></figure>
+            <figure><img src="/images/21.jpg"></figure>
+            <figure><img src="/images/22.jpg"></figure>
+            <figure><img src="/images/23.jpg"></figure>
+            <figure><img src="/images/20.jpg"></figure>
+            <figure><img src="/images/21.jpg"></figure>
+            <figure><img src="/images/22.jpg"></figure>
+            <figure><img src="/images/23.jpg"></figure>
+            <figure><img src="/images/22.jpg"></figure>
+        </div>
+    </div>
+</body>
+</html>
+
+<p style="color:white">.</p>
+<p style="color:white">.</p>
+<p style="color:white">.</p>
+<p style="color:white">.</p>
+<p style="color:white">.</p>
+<p style="color:white">.</p>
+<p style="color:white">.</p>
+
+
+
 <div class="text-center">
     <div class="container">
-        <form asp-action="Create" asp-controller="Home">
-            <button class="btn btn-success" type="submit">Add Movie</button>
-        </form>
-        <hr />
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             @foreach (var @movies in @ViewBag.Movies)
             {
